@@ -3,7 +3,7 @@ package org.reksio.rfp.rest.api.models;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.reksio.rfp.rest.api.dictionaries.ProductStatus;
+import org.reksio.rfp.rest.api.enums.ProductStatus;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 

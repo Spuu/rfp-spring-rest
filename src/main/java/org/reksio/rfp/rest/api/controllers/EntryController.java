@@ -15,10 +15,4 @@ public class EntryController {
     public ResponseEntity entry() {
         return new ResponseEntity(HttpStatus.OK);
     }
-
-    @RequestMapping(value = "/secured/ping")
-    @ResponseBody
-    public String securedPing() {
-        return "All good. You DO need to be authenticated to call /secured/ping";
-    }
 }

@@ -3,7 +3,7 @@ package org.reksio.rfp.rest.api.models;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.reksio.rfp.rest.api.dictionaries.InvoiceType;
+import org.reksio.rfp.rest.api.enums.InvoiceType;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.NotNull;
