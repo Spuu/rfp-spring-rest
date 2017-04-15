@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class EntryController {
-    @RequestMapping("/")
+    @RequestMapping("/api")
     public ResponseEntity entry() {
         return new ResponseEntity(HttpStatus.OK);
     }
