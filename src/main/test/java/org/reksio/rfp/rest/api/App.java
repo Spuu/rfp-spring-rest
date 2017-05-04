@@ -4,7 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.reksio.rfp.rest.api.models.Document;
 import org.reksio.rfp.rest.api.models.Invoice;
+import org.reksio.rfp.rest.api.models.Product;
 import org.reksio.rfp.rest.api.repositories.InvoiceRepository;
+import org.reksio.rfp.rest.api.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,6 +18,9 @@ public class App {
     @Autowired
     InvoiceRepository invoiceRepository;
 
+    @Autowired
+    ProductRepository productRepository;
+
     @Test
     public void saveDocument() {
         invoiceRepository.deleteAll();
@@ -25,6 +30,15 @@ public class App {
                 .build();
 
         invoiceRepository.save(faktura);
+
+        productRepository.deleteAll();
+
+        Product product = Product.builder()
+                .name("Product testowy")
+                .ean("1234567890")
+                .build();
+
+        productRepository.save(product);
 
         /*Person ludek = Person.builder()
                 .firstName("Jan")
