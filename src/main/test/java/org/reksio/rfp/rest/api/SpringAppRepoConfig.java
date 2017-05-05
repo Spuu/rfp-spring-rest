@@ -14,7 +14,7 @@ public class SpringAppRepoConfig extends AbstractMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "test";
+        return "rfp";
     }
 
     @Override

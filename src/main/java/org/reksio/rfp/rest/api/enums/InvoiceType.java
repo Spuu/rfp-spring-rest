@@ -1,4 +1,4 @@
-package org.reksio.rfp.rest.api.dictionaries;
+package org.reksio.rfp.rest.api.enums;
 
 /**
  * InvoiceType

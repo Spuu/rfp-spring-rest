@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Counterparty {
-    public Counterparty() {}
+    private Counterparty() {}
 
     @Builder
     public Counterparty(String name, String fullName) {

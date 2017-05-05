@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Store {
-    public Store() {}
+    private Store() {}
 
     @Builder
     public Store(String name, String fullName) {
