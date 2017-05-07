@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,21 @@ public class Product {
     private static final Boolean DEFAULT_ENABLED = true;
     private static final Boolean DEFAULT_BARCODE = false;
 
-    private Product() {
+    public Product() {
+        this.enabled = DEFAULT_ENABLED;
+        this.barcode = DEFAULT_BARCODE;
+        this.pihAmount = DEFAULT_PIH_AMOUNT;
+        this.pihUnit = DEFAULT_PIH_UNIT;
+        this.sellUnit = DEFAULT_SELL_UNIT;
+        this.vat = DEFAULT_VAT;
+        this.status = DEFAULT_STATUS;
+        this.groupee = new ArrayList<>();
+        this.children = new ArrayList<>();
+        this.cashRegisterInfo =
+                CashRegisterInfo.builder()
+                        .price(0.0)
+                        .vat(this.vat)
+                        .build();
     }
 
     @Builder
@@ -102,10 +117,18 @@ public class Product {
     @NotNull
     private CashRegisterInfo cashRegisterInfo;
 
-    @Builder
     @Getter
     @Setter
     private static class CashRegisterInfo {
+        public CashRegisterInfo() {}
+
+        @Builder
+        public CashRegisterInfo(String name, Double price, Integer vat) {
+            this.name = name;
+            this.price = price;
+            this.vat = vat;
+        }
+
         private String name;
         private Double price;
         private Integer vat;
