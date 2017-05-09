@@ -1,13 +1,12 @@
 package org.reksio.rfp.rest.api.models;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.reksio.rfp.rest.api.enums.InvoiceType;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,17 +16,11 @@ import java.util.List;
 @Setter
 public class Invoice extends Document {
 
-    public Invoice() {}
+    public static final InvoiceType DEFAULT_INVOICE_TYPE = InvoiceType.BUY;
 
-    @Builder
-    public Invoice(String name, LocalDate creationDate, LocalDate documentDate,
-                   LocalDate lastModificationDate, List<Category> categories, Store store,
-                   Counterparty counterparty, List<Position> positions, InvoiceType type) {
-        super(name, creationDate, documentDate, lastModificationDate, categories);
-        this.store = store;
-        this.counterparty = counterparty;
-        this.positions = positions;
-        this.type = type;
+    public Invoice() {
+        this.type = DEFAULT_INVOICE_TYPE;
+        this.positions = new ArrayList<>();
     }
 
     @DBRef
@@ -41,5 +34,5 @@ public class Invoice extends Document {
     @DBRef
     private List<Position> positions;
 
-    private InvoiceType type = InvoiceType.BUY;
+    private InvoiceType type;
 }

@@ -14,14 +14,6 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Category {
-    public Category() {}
-
-    @Builder
-    public Category(String name, String type) {
-        this.name = name;
-        this.type = type;
-    }
-
     @Id
     @Setter(AccessLevel.NONE)
     private String id;

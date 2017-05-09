@@ -25,22 +25,22 @@ public class App {
 
     @Test
     public void saveDocument() {
-        invoiceRepository.deleteAll();
+//        invoiceRepository.deleteAll();
+//
+//        Invoice faktura = Invoice.builder()
+//                .name("fakturka")
+//                .build();
+//
+//        invoiceRepository.save(faktura);
 
-        Invoice faktura = Invoice.builder()
-                .name("fakturka")
-                .build();
-
-        invoiceRepository.save(faktura);
-
-        productRepository.deleteAll();
-
-        Product product = Product.builder()
-                .name("Product testowy")
-                .ean("1234567890")
-                .build();
-
-        productRepository.save(product);
+//        productRepository.deleteAll();
+//
+//        ProductBuilder product = ProductBuilder.builder()
+//                .name("ProductBuilder testowy")
+//                .ean("1234567890")
+//                .build();
+//
+//        productRepository.save(product);
 
         /*Person ludek = Person.builder()
                 .firstName("Jan")
@@ -85,11 +85,9 @@ public class App {
         Random rnd = new Random();
 
         for (int i=0;i<length;++i) {
-            Product product = Product.builder()
-                    .name(String.join(" ", firstNames[rnd.nextInt(firstNames.length)], lastNames[rnd.nextInt(lastNames.length)]))
-                    .ean(generateNumber(13))
-                    .build();
-
+            Product product = new Product();
+            product.setName(String.join(" ", firstNames[rnd.nextInt(firstNames.length)], lastNames[rnd.nextInt(lastNames.length)]));
+            product.setEan(generateNumber(13));
             productRepository.save(product);
         }
     }

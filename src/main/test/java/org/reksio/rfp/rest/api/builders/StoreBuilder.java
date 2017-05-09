@@ -1,4 +1,4 @@
-package org.reksio.rfp.rest.api.models;
+package org.reksio.rfp.rest.api.builders;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -9,16 +9,24 @@ import org.springframework.data.annotation.Id;
 import javax.validation.constraints.NotNull;
 
 /**
- * Store
+ * StoreBuilder
  */
 @Getter
 @Setter
-public class Store {
+public class StoreBuilder {
+    private StoreBuilder() {}
+
+    @Builder
+    public StoreBuilder(String name, String fullName) {
+        this.name = name;
+        this.fullName = fullName;
+    }
+
     @Id
     @Setter(AccessLevel.NONE)
     private String id;
 
-    @NotNull(message = "Store name should be provided")
+    @NotNull(message = "StoreBuilder name should be provided")
     private String name;
 
     private String fullName;

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,14 +19,10 @@ import java.util.List;
 public abstract class Document {
 
     public Document() {
-    }
-
-    public Document(String name, LocalDate creationDate, LocalDate documentDate, LocalDate lastModificationDate, List<Category> categories) {
-        this.name = name;
-        this.creationDate = creationDate;
-        this.documentDate = documentDate;
-        this.lastModificationDate = lastModificationDate;
-        this.categories = categories;
+        this.creationDate = LocalDate.now();
+        this.documentDate = LocalDate.now();
+        this.lastModificationDate = LocalDate.now();
+        this.categories = new ArrayList<>();
     }
 
     @Id
@@ -35,11 +32,11 @@ public abstract class Document {
     @NotNull
     protected String name;
 
-    protected LocalDate creationDate = LocalDate.now();
+    protected LocalDate creationDate;
 
-    protected LocalDate documentDate = LocalDate.now();
+    protected LocalDate documentDate;
 
-    protected LocalDate lastModificationDate = LocalDate.now();
+    protected LocalDate lastModificationDate;
 
     @DBRef
     protected List<Category> categories;
