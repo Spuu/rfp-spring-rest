@@ -2,15 +2,18 @@ package org.reksio.rfp.rest.api;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.reksio.rfp.rest.api.builders.InvoiceBuilder;
+import org.reksio.rfp.rest.api.builders.PositionBuilder;
 import org.reksio.rfp.rest.api.models.Document;
 import org.reksio.rfp.rest.api.models.Invoice;
+import org.reksio.rfp.rest.api.models.Position;
 import org.reksio.rfp.rest.api.models.Product;
-import org.reksio.rfp.rest.api.repositories.InvoiceRepository;
-import org.reksio.rfp.rest.api.repositories.ProductRepository;
+import org.reksio.rfp.rest.api.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Arrays;
 import java.util.Random;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,46 +21,54 @@ import java.util.Random;
 public class App {
 
     @Autowired
+    CounterpartyRepository counterpartyRepository;
+
+    @Autowired
+    StoreRepository storeRepository;
+
+    @Autowired
     InvoiceRepository invoiceRepository;
 
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    PositionRepository positionRepository;
+
     @Test
-    public void saveDocument() {
-//        invoiceRepository.deleteAll();
-//
-//        Invoice faktura = Invoice.builder()
-//                .name("fakturka")
-//                .build();
-//
-//        invoiceRepository.save(faktura);
+    public void showMeADocument() {
+        Position position = positionRepository.findAll().get(0);
 
-//        productRepository.deleteAll();
-//
-//        ProductBuilder product = ProductBuilder.builder()
-//                .name("ProductBuilder testowy")
-//                .ean("1234567890")
-//                .build();
-//
-//        productRepository.save(product);
-
-        /*Person ludek = Person.builder()
-                .firstName("Jan")
-                .lastName("Kowalski")
-                .document(doc)
-                .build();
-
-        peopleRepository.save(ludek);
-
-        Person ludek2 = Person.builder()
-                .firstName("Tadeusz")
-                .lastName("Nowak")
-                .document(faktura)
-                .build();
-
-        peopleRepository.save(ludek2);*/
+        System.out.println("---");
+        System.out.println(position.getDocument().getName());
+        System.out.println("---");
     }
+
+    @Test
+    public void addInvoice() {
+        Invoice invoice = InvoiceBuilder.instance()
+                .setCounterparty(counterpartyRepository.findAll().get(0))
+                .setStore(storeRepository.findAll().get(0))
+                .setName("fakturka z builderka")
+                .build();
+
+        invoiceRepository.save(invoice);
+
+        Position position = PositionBuilder.instance()
+                .setIndex(0)
+                .setBuyNettoPrice(1.0)
+                .setSellBruttoPrice(2.0)
+                .setQuantity(1.0)
+                .setStore(storeRepository.findAll().get(0))
+                .setDocument(invoice)
+                .build();
+
+        positionRepository.save(position);
+
+        invoice.setPositions(Arrays.asList(position));
+        invoiceRepository.save(invoice);
+    }
+
 
     String generateNumber(int digits) {
         if (digits <= 0)

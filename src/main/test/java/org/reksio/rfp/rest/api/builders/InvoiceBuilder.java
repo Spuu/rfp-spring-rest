@@ -1,10 +1,7 @@
 package org.reksio.rfp.rest.api.builders;
 
 import org.reksio.rfp.rest.api.enums.InvoiceType;
-import org.reksio.rfp.rest.api.models.Counterparty;
-import org.reksio.rfp.rest.api.models.Invoice;
-import org.reksio.rfp.rest.api.models.Position;
-import org.reksio.rfp.rest.api.models.Store;
+import org.reksio.rfp.rest.api.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +9,7 @@ import java.util.List;
 /**
  * InvoiceBuilder
  */
-public class InvoiceBuilder extends DocumentBuilder {
+public class InvoiceBuilder extends DocumentBuilder<InvoiceBuilder> {
     private Store store;
     private Counterparty counterparty;
     private List<Position> positions;

@@ -9,7 +9,8 @@ import java.util.List;
 /**
  * DocumentBuilder
  */
-public abstract class DocumentBuilder {
+@SuppressWarnings("unchecked")
+public abstract class DocumentBuilder<T extends DocumentBuilder> {
     String name;
     LocalDate creationDate;
     LocalDate documentDate;
@@ -23,28 +24,28 @@ public abstract class DocumentBuilder {
         this.categories = new ArrayList<>();
     }
 
-    public DocumentBuilder setName(String name) {
+    public T setName(String name) {
         this.name = name;
-        return this;
+        return (T)this;
     }
 
-    public DocumentBuilder setCreationDate(LocalDate creationDate) {
+    public T setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
-        return this;
+        return (T)this;
     }
 
-    public DocumentBuilder setDocumentDate(LocalDate documentDate) {
+    public T setDocumentDate(LocalDate documentDate) {
         this.documentDate = documentDate;
-        return this;
+        return (T)this;
     }
 
-    public DocumentBuilder setLastModificationDate(LocalDate lastModificationDate) {
+    public T setLastModificationDate(LocalDate lastModificationDate) {
         this.lastModificationDate = lastModificationDate;
-        return this;
+        return (T)this;
     }
 
-    public DocumentBuilder setCategories(List<Category> categories) {
+    public T setCategories(List<Category> categories) {
         this.categories = categories;
-        return this;
+        return (T)this;
     }
 }
