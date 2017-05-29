@@ -11,12 +11,12 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource
 public interface PositionRepository extends MongoRepository<Position, String> {
     // Prevents POST /people and PATCH /people/:id
-    @Override
-    @RestResource(exported = false)
-    Position save(Position position);
-
-    // Prevents DELETE /people/:id
-    @Override
-    @RestResource(exported = false)
-    void delete(Position position);
+//    @Override
+//    @RestResource(exported = false)
+//    Position save(Position position);
+//
+//    // Prevents DELETE /people/:id
+//    @Override
+//    @RestResource(exported = false)
+//    void delete(Position position);
 }

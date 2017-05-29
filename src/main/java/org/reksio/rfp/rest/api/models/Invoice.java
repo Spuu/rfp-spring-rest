@@ -1,5 +1,6 @@
 package org.reksio.rfp.rest.api.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.reksio.rfp.rest.api.enums.InvoiceType;
@@ -34,5 +35,6 @@ public class Invoice extends Document {
     @DBRef
     private List<Position> positions;
 
+    @NotNull
     private InvoiceType type;
 }

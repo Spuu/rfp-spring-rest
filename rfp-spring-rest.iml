@@ -30,7 +30,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.7" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-webmvc:2.6.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-rest-core:2.6.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.hateoas:spring-hateoas:0.23.0.RELEASE" level="project" />
@@ -47,6 +46,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.13.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.8" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.7" level="project" />
+    <orderEntry type="library" name="Maven: javax.ws.rs:jsr311-api:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-validator:5.4.0.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />

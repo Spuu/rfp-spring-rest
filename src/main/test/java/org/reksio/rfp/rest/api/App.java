@@ -63,7 +63,17 @@ public class App {
                 .setDocument(invoice)
                 .build();
 
+        Position position2 = PositionBuilder.instance()
+                .setIndex(1)
+                .setBuyNettoPrice(2.0)
+                .setSellBruttoPrice(3.0)
+                .setQuantity(2.0)
+                .setStore(storeRepository.findAll().get(0))
+                .setDocument(invoice)
+                .build();
+
         positionRepository.save(position);
+        positionRepository.save(position2);
 
         invoice.setPositions(Arrays.asList(position));
         invoiceRepository.save(invoice);

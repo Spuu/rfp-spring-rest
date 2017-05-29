@@ -1,13 +1,18 @@
 package org.reksio.rfp.rest.api.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.reksio.rfp.rest.api.services.LocalDateTimeDeserializer;
+import org.reksio.rfp.rest.api.services.LocalDateTimeSerializer;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +23,10 @@ import java.util.List;
 @Setter
 public abstract class Document {
 
-    public Document() {
-        this.creationDate = LocalDate.now();
-        this.documentDate = LocalDate.now();
-        this.lastModificationDate = LocalDate.now();
+    Document() {
+        this.creationDate = LocalDateTime.now();
+        this.documentDate = LocalDateTime.now();
+        this.lastModificationDate = LocalDateTime.now();
         this.categories = new ArrayList<>();
     }
 
@@ -32,11 +37,17 @@ public abstract class Document {
     @NotNull
     protected String name;
 
-    protected LocalDate creationDate;
+    //@JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    protected LocalDateTime documentDate;
 
-    protected LocalDate documentDate;
+    ///@JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    protected LocalDateTime creationDate;
 
-    protected LocalDate lastModificationDate;
+    //@JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    protected LocalDateTime lastModificationDate;
 
     @DBRef
     protected List<Category> categories;
