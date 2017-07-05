@@ -1,10 +1,10 @@
 package org.reksio.rfp.rest.api.models;
 
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +19,7 @@ public class Store {
     private String id;
 
     @NotNull(message = "Store name should be provided")
+    @Indexed(unique = true)
     private String name;
 
     private String fullName;

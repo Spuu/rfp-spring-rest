@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import javax.validation.constraints.NotNull;
 
@@ -18,6 +19,7 @@ public class Counterparty {
     private String id;
 
     @NotNull
+    @Indexed(unique = true)
     private String name;
 
     private String fullName;

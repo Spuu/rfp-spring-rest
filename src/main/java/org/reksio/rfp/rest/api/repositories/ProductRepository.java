@@ -15,5 +15,5 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource
 public interface ProductRepository extends MongoRepository<Product, String> {
     @RestResource(path = "nameOrEan", rel = "nameOrEan")
-    Page<Product> findByNameLikeOrEanLike(@Param("name") String name, @Param("ean") String ean, Pageable pageable);
+    Page<Product> findByNameIgnoreCaseContainingOrEanIgnoreCaseContaining(@Param("name") String name, @Param("ean") String ean, Pageable pageable);
 }

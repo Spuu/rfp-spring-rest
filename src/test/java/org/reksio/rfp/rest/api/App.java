@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.reksio.rfp.rest.api.builders.InvoiceBuilder;
 import org.reksio.rfp.rest.api.builders.PositionBuilder;
-import org.reksio.rfp.rest.api.models.Document;
 import org.reksio.rfp.rest.api.models.Invoice;
 import org.reksio.rfp.rest.api.models.Position;
 import org.reksio.rfp.rest.api.models.Product;
