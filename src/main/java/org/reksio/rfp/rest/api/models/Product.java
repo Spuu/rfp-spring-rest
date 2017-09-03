@@ -1,5 +1,6 @@
 package org.reksio.rfp.rest.api.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import org.reksio.rfp.rest.api.enums.ProductStatus;
@@ -69,15 +70,19 @@ public class Product {
     private Integer vat;
 
     @DBRef
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Product grouper;
 
     @DBRef
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private List<Product> groupee;
 
     @DBRef
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Product father;
 
     @DBRef
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private List<Product> children;
 
     @NotNull

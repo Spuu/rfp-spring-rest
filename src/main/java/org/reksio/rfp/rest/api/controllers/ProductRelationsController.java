@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * EntryController
+ * ProductRelationsController
  */
 @RestController
-public class EntryController {
-    @RequestMapping("/api")
-    public ResponseEntity entry() {
+public class ProductRelationsController {
+    @RequestMapping("/api/products/relations/set-father")
+    public ResponseEntity setFather() {
         return new ResponseEntity(HttpStatus.OK);
     }
 }
